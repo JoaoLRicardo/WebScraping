@@ -25,22 +25,22 @@ with open('tabela_tios.csv', 'w', encoding='utf8', newline='') as f:
     header = ['Nome' + ';' + 'Tel1' + ';' + 'Tel2' + ';' + 'WhatsApp' + ';']
     thewriter.writerow(header)
 
-for item in lista_contatos:
-  init = item[31].find("+55")
-  fim = item[31].find("&amp")
-  nome = item[4][:-4]
-  telefone1 = item[19][:-4]
-  telefone2 = item[25][:-4]
-  whatsapp = item[31][init:fim]
-  print(nome)
-  print(telefone1)
-  print(telefone2)
-  print(whatsapp)
-  print()
-info = [nome + ';']
-info = ['nome' + ';' + 'telefone1' + ';' + 'telefone1' + ';' + 'whatsapp' + ';']
+    for item in lista_contatos:
+        init = item[31].find("+55")
+        fim = item[31].find("&amp")
+        nome = item[4][:-4]
+        telefone1 = item[19][:-4]
+        telefone2 = item[25][:-4]
+        whatsapp = item[31][init:fim]
+    # print(type(nome))
+    # print(telefone1)
+    # print(telefone2)
+    # print(whatsapp)
+    # print()
+    # info = [nome + ';']
+        info = [nome + ';' + telefone1 + ';' + telefone2 + ';' + whatsapp + ';']
 
-thewriter.writerow(info)
+        thewriter.writerow(info)
     
 
 
