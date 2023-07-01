@@ -1,3 +1,5 @@
-for nome in tio_list:
-#     nome_tios = nome.text
-#     print(nome_tios)
+  print(nome)
+  print(telefone1)
+  print(telefone2)
+  print(whatsapp)
+  print()
