@@ -21,25 +21,25 @@ for i in range(1, ultima_pag+1):
     # print(url_page)
     print(f'Pagina {i}')
 
-    nome_tio = soup.find_all('div', 'descr')
-    lista_contatos = []
+nome_tio = soup.find_all('div', 'descr')
+lista_contatos = []
 
-    for i,j in enumerate(list(nome_tio)):
-        lista_contatos.append(str(j).split('>'))
+for i,j in enumerate(list(nome_tio)):
+    lista_contatos.append(str(j).split('>'))
 
-    with open('tabela_tios.csv', 'w', encoding='utf-8', newline='') as f:
-        thewriter = writer(f)
-        header = ['Nome' + ';' + 'Tel1' + ';' + 'Tel2' + ';' + 'WhatsApp' + ';']
-        thewriter.writerow(header)
+with open('tabela_tios.csv', 'w', encoding='utf-8', newline='') as f:
+    thewriter = writer(f)
+    header = ['Nome' + ';' + 'Tel1' + ';' + 'Tel2' + ';' + 'WhatsApp' + ';']
+    thewriter.writerow(header)
 
-        for item in lista_contatos:
-            init = item[31].find("+55")
-            fim = item[31].find("&amp")
-            nome = item[4][:-4]
-            telefone1 = item[19][:-4]
-            telefone2 = item[25][:-4]
-            whatsapp = item[31][init:fim]
-            
-            info = [nome + ';' + telefone1 + ';' + telefone2 + ';' + whatsapp + ';']
+    for item in lista_contatos:
+        init = item[31].find("+55")
+        fim = item[31].find("&amp")
+        nome = item[4][:-4]
+        telefone1 = item[19][:-4]
+        telefone2 = item[25][:-4]
+        whatsapp = item[31][init:fim]
+        
+        info = [nome + ';' + telefone1 + ';' + telefone2 + ';' + whatsapp + ';']
 
-            thewriter.writerow(info)
+        thewriter.writerow(info)
