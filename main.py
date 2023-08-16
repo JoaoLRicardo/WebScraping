@@ -51,7 +51,4 @@ while True:
                     thewriter.writerow(info)
         c += 1
         break
-
-
-
-""
+    
